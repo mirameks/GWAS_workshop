@@ -49,15 +49,28 @@ write.table(data,file = "~/Desktop/GWAS_workshop/CB1908_IC50_log2.txt",quote = F
 ./plink --bfile genotypes --maf 0.05 --linear --adjust --pheno CB1908_IC50_log2.txt --pheno-name log2_CB1908_IC50 --out CB1908_L2_IC50
 
 ### --bfile: tells plink that the datafiles that begin with genotypee are in binary format
-    --maf 0.05: filters out any SNPs with a minor allele frequency < 0.05
-    --linear: runs a linear additive association test for each SNPs
-    --adjust: uses multiple-testing correction methods to adjust p-values for each SNPs
-    --pheno: tells plink the phenotype is located in a separate phenotype file
-    --pheno-name: tells plink that log2_CB1908_IC50 is the column heading of the phenotype to use in the phenotype file
-    --out: tells plink CB1908_L2_IC50 is the text that begins each output file
+### --maf 0.05: filters out any SNPs with a minor allele frequency < 0.05
+### --linear: runs a linear additive association test for each SNPs
+### --adjust: uses multiple-testing correction methods to adjust p-values for each SNPs
+### --pheno: tells plink the phenotype is located in a separate phenotype file
+### --pheno-name: tells plink that log2_CB1908_IC50 is the column heading of the phenotype to use in the phenotype file
+### --out: tells plink CB1908_L2_IC50 is the text that begins each output file
 
 
 3.	Make a Q-Q plot and a Manhattan plot of your results.  Embed the plots into this document and write a figure legend that explains each plot.
+```{r}
+data<-read.table("~/Desktop/GWAS_workshop/CB1908_L2_IC50.assoc.linear",header=T)
+source('~/Desktop/GWAS_workshop/qqman.r')
+png(filename="qqplot.png",res=100)
+qq(data$P)
+dev.off()
+  
+png(filename="manplot.png",res=100)
+manhattan(data)
+dev.off()
+```
+
+
 
 4.	What does the Q-Q plot tell you about your data?  What potential confounders in your data should you analyze further? (Note: It is not necessary to actually perform the confounder analyses, just explain what you should further investigate.)
 
