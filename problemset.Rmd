@@ -43,7 +43,7 @@ data <- cbind(data,log2_CB1908_IC50)
 data[1:3,]
 write.table(data,file = "~/Desktop/GWAS_workshop/CB1908_IC50_log2.txt",quote = F,row.names = F)
 ```
-### I did not adjust the phenotype before running the analysis so that I could view the original distribution, which is skewed to the right. After performing the log2 transformation, it became more normally distributed. After performing the Shapiro-Wilk test, the p-value of 0.0005145 suggests that this phenotype is likely not normally distributed as it is less than 0.05. I then added the log2(IC50) phenotype into the data file.
+### I did not adjust the phenotype before running the analysis so that I could view the original distribution, which is skewed to the left. After performing the log2 transformation, it became more normally distributed. After performing the Shapiro-Wilk test, the p-value of 0.0005145 suggests that this phenotype is likely not normally distributed as it is less than 0.05. I then added the log2(IC50) phenotype into the data file.
 
 2.	Show the plink command you used to run your GWAS below and explain what each option within the command does.
 ./plink --bfile genotypes --maf 0.05 --linear --adjust --pheno CB1908_IC50_log2.txt --pheno-name log2_CB1908_IC50 --out CB1908_L2_IC50
@@ -73,6 +73,8 @@ dev.off()
 
 
 4.	What does the Q-Q plot tell you about your data?  What potential confounders in your data should you analyze further? (Note: It is not necessary to actually perform the confounder analyses, just explain what you should further investigate.)
+
+### Up until the 45th percentile, the data points align somewhat closely with the expected distribution. Towards the end, it starts to deviate farther than the expected line indicating that these SNPs' p-values are much more significant and is associated with the drug response to CB1908. There are also possibilities of confounders because the values start to deviate in the middle rather than at the very end. We should investigate other potential genetic factors that could influence these SNPs differences such as their genetic makeup. We should also look at the condition and the environment these individuals were treated in.
 
 5.	Do you have any genome-wide significant hits?  How did you correct for multiple hypothesis testing?  
 
