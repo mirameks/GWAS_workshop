@@ -86,6 +86,22 @@ dev.off()
 
 7.	Make a plot and figure legend of your top hit’s genotype vs. phenotype.  Is the minor allele associated with resistance or sensitivity to Drug X?
 
+###using plink, pull out the genotypes of this rsID to use appropriately in R
+
+./plink --bfile genotypes --snp rs10876043 --recode A 
+  --out rs10876043_genotypes
+
+```{r}
+gts<-read.table("~/Desktop/GWAS_workshop/rs10876043_genotypes.raw"
+  ,header=T)
+pts<-read.table("~/Desktop/GWAS_workshop/CB1908_IC50_log2.txt"
+  ,header=T)
+boxplot(pts$log2_CB1908_IC50~gts$rs10876043_T
+  ,ylab="CB1908 log2(IC50)",xlab="rs10876043 genotype")
+```
+
+###this creates a box plot (rs10876043 is not a separate file in the GWAS workshop, so I am not sure how this would work, but if it was a file, then this code would be used to create the boxplot)
+
 8.	What analyses and experiments would you do next to follow-up on your findings?
 
 
