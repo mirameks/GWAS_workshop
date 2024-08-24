@@ -77,6 +77,7 @@ dev.off()
 ### Up until the 45th percentile, the data points align somewhat closely with the expected distribution. Towards the end, it starts to deviate farther than the expected line indicating that these SNPs' p-values are much more significant and is associated with the drug response to CB1908. There are also possibilities of confounders because the values start to deviate in the middle rather than at the very end. We should investigate other potential genetic factors that could influence these SNPs differences such as their genetic makeup. We should also look at the condition and the environment these individuals were treated in.
 
 5.	Do you have any genome-wide significant hits?  How did you correct for multiple hypothesis testing?  
+### I learned about the Bonferroni correction to correct for multiple hypothesis testing. This was already provided in the adjusted linear association values file. The data that stuck out to me was in Chromosome 12, the Bonferroni correction value is less than 1 by a lot (1.313e-05), so the SNPs on chromosome 12 show the strongest association to the drug response than the other chromosomes. 
 
 6.	Is there any functional information known about your top SNPs?  Are they located in or near a gene?  How might these loci be functioning in response to CB1908?  Please use screen captures of appropriate databases or LocusZoom to highlight interesting loci.
 
