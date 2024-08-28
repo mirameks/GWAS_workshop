@@ -103,5 +103,5 @@ boxplot(pts$log2_CB1908_IC50~gts$rs10876043_T
 ###this creates a box plot (rs10876043 is not a separate file in the GWAS workshop, so I am not sure how this would work, but if it was a file, then this code would be used to create the boxplot)
 
 8.	What analyses and experiments would you do next to follow-up on your findings?
-### we could experiment to see how nearby genes could be affected by the drug and how that affects gene regulation. We could experiment again with a more uniform group with close to the same genetic makeup to exclude confounding variables.
+### we could experiment to see how nearby genes could be affected by the drug and how that affects gene regulation. We could experiment again with a more uniform group with close to the same genetic makeup to exclude confounding variables. Also figure out how exactly the drug affects the body and the role of the chromosome 12
 
